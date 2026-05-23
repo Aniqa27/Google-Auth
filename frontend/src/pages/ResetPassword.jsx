@@ -40,8 +40,8 @@ const ResetPassword = () => {
           <p>Enter your new password below</p>
         </div>
 
-        {msg   && <div className="alert alert-success">✅ {msg} Redirecting to login...</div>}
-        {error && <div className="alert alert-error">⚠️ {error}</div>}
+        {msg   && <div className="alert alert-success"> {msg} Redirecting to login...</div>}
+        {error && <div className="alert alert-error"> {error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">

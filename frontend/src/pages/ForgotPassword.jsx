@@ -31,8 +31,8 @@ const ForgotPassword = () => {
           <p>Enter your email to receive a reset link</p>
         </div>
 
-        {msg   && <div className="alert alert-success">✅ {msg}</div>}
-        {error && <div className="alert alert-error">⚠️ {error}</div>}
+        {msg   && <div className="alert alert-success"> {msg}</div>}
+        {error && <div className="alert alert-error"> {error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">

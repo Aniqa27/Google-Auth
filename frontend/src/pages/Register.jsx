@@ -37,12 +37,12 @@ const Register = () => {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <div className="auth-logo">🔐</div>
+          <div className="auth-logo"></div>
           <h2>Create Account</h2>
           <p>Join us today — it's free!</p>
         </div>
 
-        {error && <div className="alert alert-error">⚠️ {error}</div>}
+        {error && <div className="alert alert-error"> {error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">

@@ -1,6 +1,4 @@
-/* =========================
-   GOOGLE FONT
-========================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
@@ -27,9 +25,9 @@ body{
   min-height:100vh;
 }
 
-/* =========================
+/* 
    AUTH PAGE
-========================= */
+ */
 
 .auth-page{
   min-height:100vh;
@@ -65,9 +63,9 @@ body{
   right:-100px;
 }
 
-/* =========================
+/* 
    CARD
-========================= */
+ */
 
 .auth-card{
   width:100%;
@@ -94,9 +92,9 @@ body{
   }
 }
 
-/* =========================
+/* 
    HEADER
-========================= */
+*/
 
 .auth-header{
   text-align:center;
@@ -128,9 +126,9 @@ body{
   font-size:14px;
 }
 
-/* =========================
+/* 
    FORM
-========================= */
+ */
 
 .auth-form{
   display:flex;
@@ -169,9 +167,9 @@ body{
   box-shadow:0 0 15px rgba(108,99,255,0.35);
 }
 
-/* =========================
+/* 
    BUTTON
-========================= */
+*/
 
 .btn-primary{
   width:100%;
@@ -198,9 +196,9 @@ body{
   cursor:not-allowed;
 }
 
-/* =========================
+/* 
    FOOTER LINKS
-========================= */
+ */
 
 .auth-footer{
   margin-top:20px;
@@ -226,9 +224,9 @@ body{
   margin-top:-8px;
 }
 
-/* =========================
+/* 
    ALERTS
-========================= */
+*/
 
 .alert{
   padding:14px;
@@ -249,9 +247,9 @@ body{
   border:1px solid rgba(0,255,170,0.2);
 }
 
-/* =========================
+/* 
    DASHBOARD
-========================= */
+ */
 
 .dashboard-page{
   min-height:100vh;
@@ -298,9 +296,9 @@ body{
   padding:40px 20px;
 }
 
-/* =========================
+/* 
    STATS CARD
-========================= */
+ */
 
 .stats-grid{
   display:grid;
@@ -340,9 +338,9 @@ body{
   margin-top:4px;
 }
 
-/* =========================
+/* 
    PROFILE CARD
-========================= */
+ */
 
 .profile-card{
   margin-top:30px;
@@ -377,9 +375,9 @@ body{
   font-weight:500;
 }
 
-/* =========================
+/* 
    RESPONSIVE
-========================= */
+ */
 
 @media(max-width:600px){
 

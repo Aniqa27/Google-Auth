@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
     select: false   // never return password in queries
   },
 
-  // ── Unique Client ID (auto-generated) ─────────────
+
   clientId: {
     type: String,
     unique: true
@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-// ── Generate unique Client ID before saving ────────────────────
+
 UserSchema.pre('save', async function (next) {
   // Hash password only when it's new or modified
   if (this.isModified('password')) {
@@ -50,7 +50,7 @@ UserSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt);
   }
 
-  // Generate clientId only on first save
+ 
   if (this.isNew && !this.clientId) {
     this.clientId = 'CL-' + Date.now().toString(36).toUpperCase() +
                     '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
@@ -59,21 +59,21 @@ UserSchema.pre('save', async function (next) {
   next();
 });
 
-// ── Compare entered password with hashed ──────────────────────
+
 UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// ── Generate password reset token ─────────────────────────────
+
 UserSchema.methods.getResetPasswordToken = function () {
-  // Generate raw token
+ 
   const resetToken = crypto.randomBytes(32).toString('hex');
 
-  // Hash and store in DB
+  
   this.resetPasswordToken  = crypto.createHash('sha256').update(resetToken).digest('hex');
   this.resetPasswordExpire = Date.now() + 15 * 60 * 1000; // 15 minutes
 
-  return resetToken; // return raw token (sent in email)
+  return resetToken; 
 };
 
 module.exports = mongoose.model('User', UserSchema);

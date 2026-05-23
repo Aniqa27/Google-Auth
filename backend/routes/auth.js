@@ -6,14 +6,14 @@ const nodemailer = require('nodemailer');
 const User       = require('../models/User');
 const { protect } = require('../middleware/auth');
 
-// ── Helper: Generate JWT ─────────────────────────────────────
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || '7d'
   });
 };
 
-// ── Helper: Send Email ───────────────────────────────────────
+
 const sendEmail = async ({ to, subject, html }) => {
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -26,11 +26,7 @@ const sendEmail = async ({ to, subject, html }) => {
   await transporter.sendMail({ from: process.env.EMAIL_USER, to, subject, html });
 };
 
-// ────────────────────────────────────────────────────────────
-// @route   POST /api/auth/register
-// @desc    Register a new user
-// @access  Public
-// ────────────────────────────────────────────────────────────
+
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -72,11 +68,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────────────────
-// @route   POST /api/auth/login
-// @desc    Login user
-// @access  Public
-// ────────────────────────────────────────────────────────────
+
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -117,11 +109,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────────────────
-// @route   POST /api/auth/forgot-password
-// @desc    Send password reset email
-// @access  Public
-// ────────────────────────────────────────────────────────────
+
 router.post('/forgot-password', async (req, res) => {
   try {
     const { email } = req.body;
@@ -173,11 +161,7 @@ router.post('/forgot-password', async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────────────────
-// @route   POST /api/auth/reset-password/:token
-// @desc    Reset password using token
-// @access  Public
-// ────────────────────────────────────────────────────────────
+
 router.post('/reset-password/:token', async (req, res) => {
   try {
     const { password } = req.body;
@@ -211,11 +195,7 @@ router.post('/reset-password/:token', async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────────────────
-// @route   GET /api/auth/me
-// @desc    Get logged-in user profile
-// @access  Protected
-// ────────────────────────────────────────────────────────────
+
 router.get('/me', protect, async (req, res) => {
   const user = req.user;
   res.json({
